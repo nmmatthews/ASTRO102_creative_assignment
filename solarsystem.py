@@ -2,6 +2,8 @@ from turtle import *
 import math
 import time
 
+left_shift = -500
+
 
 def create_polygon(turtle):
     sides = 8
@@ -27,7 +29,7 @@ class Planet():
         self.t.speed(1000)
         # move to correct location
         self.t.penup()
-        self.t.goto(self.distance, 0)
+        self.t.goto(self.distance+left_shift, 0)
         self.t.shapesize(self.size)
         self.t.setheading(90)
         self.t.pendown()
@@ -35,8 +37,7 @@ class Planet():
 
 def orbit_planets(planets):
     sides = 90.0
-    # angle = 360/sides
-    for _ in range(10*int(sides)):  # repeat the indented lines 12 times
+    for _ in range(int(sides)):  # repeat the indented lines 12 times
         # each planet
         for planet in planets:
             d = 2.0*math.pi*planet.distance/(sides/planet.speed)
@@ -54,9 +55,11 @@ def main():
     sun.color('yellow')
     sun.shape('circle')
     sun.shapesize(0.5)
+    sun.penup()
+    sun.goto(left_shift, 2)
     sun.stamp()
     
-    d_mult = 2.5
+    d_mult = 4
     mercury = Planet('silver', 3.9*d_mult, 0.2, 4.14)
     venus = Planet('gray', 7.2*d_mult, 0.2, 1.62)
     earth = Planet('green', 10*d_mult, 0.2, 1)
