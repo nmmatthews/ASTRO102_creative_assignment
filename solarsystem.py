@@ -45,27 +45,26 @@ def orbit_planets(planets):
             angle = 360.0/sides
             planet.t.forward(d)
             planet.t.left(angle*planet.speed)
-        
 
 
-def main():
-    s = Screen()
-    s.bgcolor('black')
-
+def set_up_sun():
     sun = Turtle()
     sun.color('yellow')
     sun.shape('circle')
-    sun.shapesize(0.5)
+    sun.shapesize(0.6)
+    sun.speed(1000)
     sun.penup()
     sun.goto(LEFT_SHIFT, 2)
     sun.stamp()
-    
-    mercury = Planet('gray30', 3.9*DISTANCE_MULTIPLIER, 0.2, 4.14)
+
+
+def create_planets():
+    mercury = Planet('gray30', 3.9*DISTANCE_MULTIPLIER, 0.2, 4.15)
     venus = Planet('OrangeRed2', 7.2*DISTANCE_MULTIPLIER, 0.2, 1.62)
     earth = Planet('green', 10*DISTANCE_MULTIPLIER, 0.2, 1)
-    mars = Planet('tomato', 15.2*DISTANCE_MULTIPLIER, 0.2, 0.42)
-    jupiter = Planet('peru', 52*DISTANCE_MULTIPLIER, 0.5, 0.08)
-    saturn = Planet('PeachPuff', 95.4*DISTANCE_MULTIPLIER, 0.5, 0.03)
+    mars = Planet('tomato', 15.2*DISTANCE_MULTIPLIER, 0.2, 0.53)
+    jupiter = Planet('peru', 52*DISTANCE_MULTIPLIER, 0.5, 0.083)
+    saturn = Planet('PeachPuff', 95.4*DISTANCE_MULTIPLIER, 0.5, 0.034)
     uranus = Planet('LightSeaGreen', 192*DISTANCE_MULTIPLIER, 0.5, 0.012)
     neptune = Planet('CornflowerBlue', 300.6*DISTANCE_MULTIPLIER, 0.5, 0.0061)
 
@@ -73,6 +72,17 @@ def main():
 
     for planet in planets:
         planet.set_up_turtle()
+
+    return planets
+
+
+def main():
+    s = Screen()
+    s.bgcolor('black')
+
+    set_up_sun()
+
+    planets = create_planets()
 
     orbit_planets(planets)
     
