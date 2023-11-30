@@ -10,14 +10,25 @@ DISTANCE_MULTIPLIER = 5
 
 def orbit_planets(planets):
     """Animate planet orbits with a tick-based system."""
-    sides = 90.0
-    for _ in range(int(sides)):  # repeat the indented lines 12 times
+    # number of ticks for Earth to complete one revolution
+    ticks = 90.0
+
+    # pre-compute each planet's orbit info to avoid duplicate work during ticks
+    for planet in planets:
+        # this math was harder than it should've been
+        # compute distance change with fraction of circumference per tick
+        delta_d = (2.0*math.pi*planet.distance/ticks)*planet.speed
+        # compute angle based on fraction of 360 degrees needed for each tick
+        angle = (360.0/ticks)*planet.speed
+        # save computed distance change and angle
+        planet.set_orbit_info(delta_d, angle)
+
+    # each tick
+    for _ in range(int(ticks)):
         # each planet
         for planet in planets:
-            # this math was harder than it should've been
-            delta_d = 2.0*math.pi*planet.distance/(sides/planet.speed)
-            angle = (360.0/sides)*planet.speed
-            planet.move_planet(delta_d, angle)
+            # move planet along orbit by one tick
+            planet.move_planet()
 
 
 def set_up_sun():

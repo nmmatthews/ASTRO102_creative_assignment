@@ -13,6 +13,8 @@ class Planet():
         self.distance = distance
         self.size = size
         self.speed = speed
+        self.delta_d = 0
+        self.angle = 0
         # init turtle object
         self.turtle = Turtle()
 
@@ -30,7 +32,12 @@ class Planet():
         self.turtle.setheading(90)
         self.turtle.pendown()
 
-    def move_planet(self, delta_d, angle):
-        """Move planet with specified distance and angle."""
-        self.turtle.forward(delta_d)
-        self.turtle.left(angle)
+    def set_orbit_info(self, delta_d, angle):
+        """Save computed distance and angle."""
+        self.delta_d = delta_d
+        self.angle = angle
+
+    def move_planet(self):
+        """Move planet with previously computed distance and angle."""
+        self.turtle.forward(self.delta_d)
+        self.turtle.left(self.angle)
