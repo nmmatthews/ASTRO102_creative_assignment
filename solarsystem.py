@@ -1,4 +1,4 @@
-"""ASTRO 102 CREATIVE ASSIGNMENT: Animated Solar System Relative Distances and Periods."""
+"""ASTRO 102: Animated Solar System Relative Distances and Periods."""
 import math
 from turtle import Turtle
 from turtle import Screen

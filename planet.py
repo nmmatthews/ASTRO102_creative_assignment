@@ -3,6 +3,7 @@ from turtle import Turtle
 
 X_SHIFT = -700
 
+
 class Planet():
     """Holds planet information and turtle object."""
 
@@ -29,6 +30,6 @@ class Planet():
         self.turtle.pendown()
 
     def move_planet(self, delta_d, angle):
-        """Move planet with specified distance and angle"""
+        """Move planet with specified distance and angle."""
         self.turtle.forward(delta_d)
         self.turtle.left(angle)
