@@ -21,6 +21,7 @@ class Planet():
         # add turtle attributes
         self.turtle.color(self.color)
         self.turtle.shape('circle')
+        # this speed only affects moving up starting location
         self.turtle.speed(1000)
         # move to correct location
         self.turtle.penup()
