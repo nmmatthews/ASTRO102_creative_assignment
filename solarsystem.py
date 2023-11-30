@@ -2,7 +2,8 @@ from turtle import *
 import math
 import time
 
-left_shift = -500
+LEFT_SHIFT = -500
+DISTANCE_MULTIPLIER = 4
 
 
 def create_polygon(turtle):
@@ -29,7 +30,7 @@ class Planet():
         self.t.speed(1000)
         # move to correct location
         self.t.penup()
-        self.t.goto(self.distance+left_shift, 0)
+        self.t.goto(self.distance+LEFT_SHIFT, 0)
         self.t.shapesize(self.size)
         self.t.setheading(90)
         self.t.pendown()
@@ -56,18 +57,17 @@ def main():
     sun.shape('circle')
     sun.shapesize(0.5)
     sun.penup()
-    sun.goto(left_shift, 2)
+    sun.goto(LEFT_SHIFT, 2)
     sun.stamp()
     
-    d_mult = 4
-    mercury = Planet('silver', 3.9*d_mult, 0.2, 4.14)
-    venus = Planet('gray', 7.2*d_mult, 0.2, 1.62)
-    earth = Planet('green', 10*d_mult, 0.2, 1)
-    mars = Planet('red', 15.2*d_mult, 0.2, 0.42)
-    jupiter = Planet('orange', 52*d_mult, 0.5, 0.08)
-    saturn = Planet('brown', 95.4*d_mult, 0.5, 0.03)
-    uranus = Planet('blue', 192*d_mult, 0.5, 0.012)
-    neptune = Planet('purple', 300.6*d_mult, 0.5, 0.0061)
+    mercury = Planet('gray30', 3.9*DISTANCE_MULTIPLIER, 0.2, 4.14)
+    venus = Planet('OrangeRed2', 7.2*DISTANCE_MULTIPLIER, 0.2, 1.62)
+    earth = Planet('green', 10*DISTANCE_MULTIPLIER, 0.2, 1)
+    mars = Planet('tomato', 15.2*DISTANCE_MULTIPLIER, 0.2, 0.42)
+    jupiter = Planet('peru', 52*DISTANCE_MULTIPLIER, 0.5, 0.08)
+    saturn = Planet('PeachPuff', 95.4*DISTANCE_MULTIPLIER, 0.5, 0.03)
+    uranus = Planet('LightSeaGreen', 192*DISTANCE_MULTIPLIER, 0.5, 0.012)
+    neptune = Planet('CornflowerBlue', 300.6*DISTANCE_MULTIPLIER, 0.5, 0.0061)
 
     planets = [mercury, venus, earth, mars, jupiter, saturn, uranus, neptune]
 
